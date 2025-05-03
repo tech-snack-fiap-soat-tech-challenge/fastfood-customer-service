@@ -5,6 +5,7 @@
   "tabWidth": 2,
   "trailingComma": "all",
   "objectWrap": "preserve",
+  "proseWrap": "preserve",
   "arrowParens": "always",
   "endOfLine": "lf"
 }

@@ -4,11 +4,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { WinstonModule } from 'nest-winston';
 import { TerminusModule } from '@nestjs/terminus';
 
-import settings from '@/setup/settings';
-import { HealthController } from '@/setup/controllers/health.controller';
-import { WinstonConfigService } from '@/setup/services/winston-config.service';
-import { TypeOrmConfigService } from '@/setup/services/typeorm-config.service';
-import { SwaggerConfigService } from '@/setup/services/swagger-config.service';
+import settings from '@/app/setup/settings';
+import { WinstonConfigService } from '@/app/setup/services/winston-config.service';
+import { TypeOrmConfigService } from '@/app/setup/services/typeorm-config.service';
+import { SwaggerConfigService } from '@/app/setup/services/swagger-config.service';
+import { HealthController } from '@/app/setup/controllers/health.controller';
 
 @Module({
   imports: [

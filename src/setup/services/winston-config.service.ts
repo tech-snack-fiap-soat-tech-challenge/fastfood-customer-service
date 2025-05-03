@@ -1,7 +1,7 @@
 import { WinstonModuleOptions, WinstonModuleOptionsFactory } from 'nest-winston';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { transports, format } from 'winston';
+import { format, transports } from 'winston';
 import { SPLAT } from 'triple-beam';
 import { TransformableInfo } from 'logform';
 
@@ -19,6 +19,7 @@ export class WinstonConfigService implements WinstonModuleOptionsFactory {
         format.label({ label: logConfig.appLabel }),
         format.timestamp({ format: logConfig.timestamp }),
         format.ms(),
+        format.errors({ stack: true }),
         format.splat(),
         format.printf((options) => this.createCustomTemplate(options, logConfig.colors[options.level])),
       ),
@@ -27,7 +28,7 @@ export class WinstonConfigService implements WinstonModuleOptionsFactory {
   }
 
   private createCustomTemplate(info: TransformableInfo, accentColor: string): string {
-    const { level, message, label, timestamp, ms } = info;
+    const { level, message, label, timestamp, ms, stack } = info;
     const [meta] = (info[SPLAT] as Record<string, string>[]) || [];
 
     const { colorize } = format.colorize({
@@ -45,9 +46,10 @@ export class WinstonConfigService implements WinstonModuleOptionsFactory {
       colorize('neutralBold', `[${colorize('accentBold', `${label}`)}] -`),
       timestamp,
       colorize('accentBold', `${level.padStart(5).toUpperCase()}`),
-      colorize('neutral', `[${meta.context}]`),
+      colorize('neutral', `[${meta?.context || 'unknown'}]`),
       message,
       colorize('accentDimmed', `${ms}`),
+      colorize('neutral', stack ? `\n${stack.toString()}` : ''),
     ].join(' ');
   }
 }

@@ -32,8 +32,11 @@ export default tseslint.config(
       'import/order': [
         'error',
         {
-          groups: ['external', 'internal'],
-          pathGroups: [{ pattern: '@/*', group: 'internal' }],
+          groups: ['builtin', 'external', 'internal'],
+          pathGroups: [
+            { pattern: '@nestjs/', group: 'builtin', position: 'before' },
+            { pattern: '@/*', group: 'internal', position: 'after' },
+          ],
           'newlines-between': 'always',
         },
       ],

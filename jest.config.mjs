@@ -1,21 +1,24 @@
 const config = {
-  rootDir: './src',
+  rootDir: '.',
   preset: 'ts-jest',
-  testEnvironment: 'node',
-  testRegex: '.*\\.spec\\.ts$',
   transform: { '^.+\\.ts$': 'ts-jest' },
-  setupFilesAfterEnv: ['../test-setup.config.mjs'],
-  coverageDirectory: '../coverage',
-  collectCoverageFrom: ['<rootDir>/**/*.ts'],
+  testMatch: ['**/__tests__/**/*.spec.ts'],
+  roots: ['<rootDir>/src/', '<rootDir>/test/'],
+  setupFilesAfterEnv: ['<rootDir>/test/test-setup.ts'],
+
+  collectCoverage: true,
+  coverageDirectory: '<rootDir>/coverage',
+  collectCoverageFrom: ['<rootDir>/src/**/*.ts', '!<rootDir>/**/__tests__/**/*'],
+  coverageThreshold: { global: { branches: 70, functions: 70, lines: 70, statements: -10 } },
+
   moduleFileExtensions: ['js', 'ts', 'json'],
   moduleNameMapper: {
-    '^@/app/(.*)$': '<rootDir>/$1',
-    '^@/setup/(.*)$': '<rootDir>/setup/$1',
-    '^@/common/(.*)$': '<rootDir>/common/$1',
-    '^@/api/(.*)$': '<rootDir>/customer/api/$1',
-    '^@/domain/(.*)$': '<rootDir>/customer/core/domain/$1',
-    '^@/application/(.*)$': '<rootDir>/customer/core/application/$1',
-    '^@/infrastructure/(.*)$': '<rootDir>/customer/infrastructure/$1',
+    '^@/app/(.*)$': '<rootDir>/src/$1',
+    '^@/domain/(.*)$': ['<rootDir>/src/customer/core/domain/$1', '<rootDir>/src/common/domain/$1'],
+    '^@/application/(.*)$': ['<rootDir>/src/customer/core/application/$1', '<rootDir>/src/common/application/$1'],
+    '^@/presentation/(.*)$': ['<rootDir>/src/customer/api/$1', '<rootDir>/src/common/api/$1'],
+    '^@/infrastructure/(.*)$': ['<rootDir>/src/customer/infrastructure/$1', '<rootDir>/src/common/infrastructure/$1'],
+    '^@/fixtures/(.*)$': ['<rootDir>src/customer/__fixtures__/$1', '<rootDir>/src/common/__fixtures__/$1'],
   },
 };
 

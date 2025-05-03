@@ -17,7 +17,8 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       password: dbConfig.pswd,
       database: dbConfig.name,
       ssl: dbConfig.sslCert,
-      entities: [__dirname + '/../modules/**/*.entity.{ts,js}'],
+      entities: [__dirname + '/../../**/*.entity.{js, ts}'],
+      logging: true,
       synchronize: false,
     };
   }

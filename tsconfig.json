@@ -19,12 +19,11 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@/app/*": ["./src/*"],
-      "@/setup/*": ["./src/setup/*"],
-      "@/common/*": ["./src/common/*"],
-      "@/api/*": ["./src/customer/api/*"],
-      "@/domain/*": ["./src/customer/core/domain/*"],
-      "@/application/*": ["./src/customer/core/application/*"],
-      "@/infrastructure/*": ["./src/customer/infrastructure/*"]
+      "@/domain/*": ["./src/customer/core/domain/*", "./src/common/domain/*"],
+      "@/application/*": ["./src/customer/core/application/*", "./src/common/application/*"],
+      "@/presentation/*": ["./src/customer/api/*", "./src/common/api/*"],
+      "@/infrastructure/*": ["./src/customer/infrastructure/*", "./src/common/infrastructure/*"],
+      "@/fixtures/*": ["./src/customer/__fixtures__/*", "./src/common/__fixtures__/*"]
     }
   }
 }
