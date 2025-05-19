@@ -6,26 +6,13 @@ export abstract class BaseEntity {
   @PrimaryGeneratedColumn({ name: 'id', type: 'integer' })
   readonly id: number;
 
-  @CreateDateColumn({
-    name: 'created_at',
-    type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP',
-  })
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   readonly createdAt: Date;
 
-  @UpdateDateColumn({
-    name: 'updated_at',
-    type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP',
-  })
+  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   readonly updatedAt: Date;
 
-  @DeleteDateColumn({
-    name: 'deleted_at',
-    type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP',
-    select: false,
-  })
+  @DeleteDateColumn({ name: 'deleted_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', select: false })
   readonly deletedAt: Date | undefined;
 
   protected constructor(props: Partial<BaseEntity> = {}) {
