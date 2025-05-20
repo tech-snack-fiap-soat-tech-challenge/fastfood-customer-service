@@ -52,6 +52,11 @@ export const customerValueObjectsFixtures = {
       tooLongNumber: '1234567891234567890',
       specialCharacters: '+12345abcde',
     },
+    missing: {
+      empty: '',
+      null: null,
+      undefined: undefined,
+    },
   },
   documentNumber: {
     valid: {
@@ -62,13 +67,17 @@ export const customerValueObjectsFixtures = {
       alternativeWithFormatting: '688.924.030-87',
     },
     invalid: {
-      empty: '',
       tooShort: '5299822472',
       tooLong: '529982247250',
       allSameDigits: '11111111111',
       wrongCheckDigits: '52998224722',
       specialCharacters: 'abcd5299822',
       withLetters: '52998abc22472X',
+    },
+    missing: {
+      empty: '',
+      null: null,
+      undefined: undefined,
     },
   },
   emailAddress: {
@@ -81,12 +90,16 @@ export const customerValueObjectsFixtures = {
       withMultipleDots: 'user.name@sub.domain.com',
     },
     invalid: {
-      empty: '',
       missingAt: 'user-domain.com',
       missingDomainPart: 'user@',
       missingLocalPart: '@domain.com',
       withSpaces: 'user name@domain.com',
       multipleAt: 'user@domain@test.com',
+    },
+    missing: {
+      empty: '',
+      null: null,
+      undefined: undefined,
     },
   },
 };

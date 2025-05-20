@@ -63,7 +63,7 @@ export class CustomerEntity extends BaseEntity {
 
     this.requiredFields.forEach((key) => {
       if (!props[key as keyof TCustomerEntityProps]) {
-        throw new InvalidInputDataException('customer', `${key} is required.`);
+        throw new InvalidInputDataException('customer', `${key} is required`);
       }
     });
 

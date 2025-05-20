@@ -4,9 +4,10 @@ import { PhoneNumberVO } from '@/domain/value-objects/phone-number.vo';
 describe('PhoneNumberVO', () => {
   // Fixtures & Stubs
   const { phoneNumber } = customerValueObjectsFixtures;
-  const { valid, invalid } = phoneNumber;
+  const { valid, invalid, missing } = phoneNumber;
 
   const validationExceptionMessage = 'Invalid customer data, invalid phone number.';
+  const requiredExceptionMessage = 'Invalid customer data, phone number is required.';
 
   describe('Given the attempts to create a PhoneNumberVO', () => {
     describe('When valid values are provided', () => {
@@ -29,6 +30,16 @@ describe('PhoneNumberVO', () => {
           const input = invalid[inputKeyString];
 
           expect(() => PhoneNumberVO.create(input)).toThrow(validationExceptionMessage);
+        });
+      });
+    });
+
+    describe('When value is missing', () => {
+      describe.each(Object.keys(missing))('And a phone number %s is specified', (inputKeyString) => {
+        it('should throw an InvalidInputDataException', () => {
+          const input = invalid[inputKeyString];
+
+          expect(() => PhoneNumberVO.create(input)).toThrow(requiredExceptionMessage);
         });
       });
     });

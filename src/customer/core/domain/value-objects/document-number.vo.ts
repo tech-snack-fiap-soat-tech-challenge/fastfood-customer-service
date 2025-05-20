@@ -17,10 +17,14 @@ export class DocumentNumberVo extends BaseValueObject<DocumentNumberVoProps> {
   }
 
   public static create(document: string): DocumentNumberVo {
-    return new DocumentNumberVo({ value: document.trim().replace(/\D+/g, '') });
+    return new DocumentNumberVo({ value: document?.trim().replace(/\D+/g, '') });
   }
 
   protected validateProps(props: DocumentNumberVoProps): void {
+    if (!props?.value) {
+      throw new InvalidInputDataException('customer', 'document number is required');
+    }
+
     if (!DocumentNumberVo.DOCUMENT_REGEX.test(props.value)) {
       throw new InvalidInputDataException('customer', 'invalid document number');
     }
