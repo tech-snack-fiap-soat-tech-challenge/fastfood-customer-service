@@ -80,8 +80,8 @@ jobs:
 
       - name: Construir e enviar imagem Docker para o ECR
         run: |
-          docker build -t ${{ secrets.AWS_ECR_REPOSITORY }}:latest .
-          docker push ${{ secrets.AWS_ECR_REPOSITORY }}:latest
+          docker build -t ${{ secrets.AWS_ECR_REPOSITORY }}/fastfood-customer-service:latest .
+          docker push ${{ secrets.AWS_ECR_REPOSITORY }}/fastfood-customer-service:latest
 
       - name: Configurar kubectl e acessar cluster EKS
         run: |
@@ -96,7 +96,7 @@ jobs:
         run: |
           helm upgrade --install fiap-fastfood ./deployment/fiap-fast-food \
             --namespace default \
-            --set image.repository=${{ secrets.AWS_ECR_REPOSITORY }} \
+            --set image.repository=${{ secrets.AWS_ECR_REPOSITORY }}/fastfood-customer-service \
             --set image.tag=latest
 
       - name: Verificar status dos pods
