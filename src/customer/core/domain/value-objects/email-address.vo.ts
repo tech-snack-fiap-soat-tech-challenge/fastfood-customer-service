@@ -18,10 +18,14 @@ export class EmailAddressVO extends BaseValueObject<EmailAddressVoProps> {
   }
 
   public static create(email: string): EmailAddressVO {
-    return new EmailAddressVO({ value: email.trim() });
+    return new EmailAddressVO({ value: email?.trim() });
   }
 
   protected validateProps(props: EmailAddressVoProps): void {
+    if (!props?.value) {
+      throw new InvalidInputDataException('customer', 'email address is required');
+    }
+
     if (!EmailAddressVO.EMAIL_REGEX.test(props.value)) {
       throw new InvalidInputDataException('customer', 'invalid email address');
     }

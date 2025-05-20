@@ -1,4 +1,4 @@
-import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
+import { ArgumentsHost, BadRequestException, Catch, ExceptionFilter } from '@nestjs/common';
 import { Response } from 'express';
 
 import { EntityNotFoundException } from '@/application/exceptions/entity-not-found.exception';
@@ -32,6 +32,15 @@ export class AppExceptionsFilter implements ExceptionFilter {
         break;
 
       case InvalidInputDataException:
+        response.status(400).json({
+          statusCode: 400,
+          path: request.url,
+          timestamp: new Date().toISOString(),
+          message: exception.message,
+        });
+        break;
+
+      case BadRequestException:
         response.status(400).json({
           statusCode: 400,
           path: request.url,

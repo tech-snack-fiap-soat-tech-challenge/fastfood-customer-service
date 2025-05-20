@@ -1,6 +1,5 @@
 import type { NestExpressApplication } from '@nestjs/platform-express';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
-import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 
@@ -12,10 +11,9 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
   const swaggerConfig = app.get(SwaggerConfigService);
 
-  app.useGlobalPipes(new ValidationPipe({ transform: true }));
-  app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
-
   swaggerConfig.createSwaggerDocs(app);
+
+  app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   await app.listen(configService.get('app.port')!);
   return app.getUrl();

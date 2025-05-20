@@ -17,10 +17,14 @@ export class PhoneNumberVO extends BaseValueObject<PhoneNumberVoProps> {
   }
 
   public static create(phone: string): PhoneNumberVO {
-    return new PhoneNumberVO({ value: phone.trim().replace(/\D+/g, '') });
+    return new PhoneNumberVO({ value: phone?.trim().replace(/\D+/g, '') });
   }
 
   protected validateProps(props: PhoneNumberVoProps): void {
+    if (!props?.value) {
+      throw new InvalidInputDataException('customer', 'phone number is required');
+    }
+
     if (!PhoneNumberVO.PHONE_REGEX.test(props.value)) {
       throw new InvalidInputDataException('customer', 'invalid phone number');
     }

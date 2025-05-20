@@ -4,9 +4,10 @@ import { EmailAddressVO } from '@/domain/value-objects/email-address.vo';
 describe('EmailAddressVO', () => {
   // Fixtures & Stubs
   const { emailAddress } = customerValueObjectsFixtures;
-  const { valid, invalid } = emailAddress;
+  const { valid, invalid, missing } = emailAddress;
 
   const validationExceptionMessage = 'Invalid customer data, invalid email address.';
+  const requiredExceptionMessage = 'Invalid customer data, email address is required.';
 
   describe('Given the attempts to create an EmailAddressVO', () => {
     describe('When valid values are provided', () => {
@@ -28,6 +29,16 @@ describe('EmailAddressVO', () => {
           const input = invalid[inputKeyString];
 
           expect(() => EmailAddressVO.create(input)).toThrow(validationExceptionMessage);
+        });
+      });
+    });
+
+    describe('When value is missing', () => {
+      describe.each(Object.keys(missing))('And an email address %s is specified', (inputKeyString) => {
+        it('should throw an InvalidInputDataException', () => {
+          const input = invalid[inputKeyString];
+
+          expect(() => EmailAddressVO.create(input)).toThrow(requiredExceptionMessage);
         });
       });
     });

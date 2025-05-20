@@ -5,9 +5,10 @@ describe('DocumentNumberVO', () => {
   // Fixtures & Stubs
 
   const { documentNumber } = customerValueObjectsFixtures;
-  const { valid, invalid } = documentNumber;
+  const { valid, invalid, missing } = documentNumber;
 
   const validationExceptionMessage = 'Invalid customer data, invalid document number.';
+  const requiredExceptionMessage = 'Invalid customer data, document number is required.';
 
   describe('Given the attempts to create a DocumentNumberVO', () => {
     describe('When valid values are provided', () => {
@@ -30,6 +31,16 @@ describe('DocumentNumberVO', () => {
           const input = invalid[inputKeyString];
 
           expect(() => DocumentNumberVo.create(input)).toThrow(validationExceptionMessage);
+        });
+      });
+    });
+
+    describe('When value is missing', () => {
+      describe.each(Object.keys(missing))('And a document number %s is specified', (inputKeyString) => {
+        it('should throw an InvalidInputDataException', () => {
+          const input = invalid[inputKeyString];
+
+          expect(() => DocumentNumberVo.create(input)).toThrow(requiredExceptionMessage);
         });
       });
     });
