@@ -3,7 +3,13 @@
 Welcome to the **Customer microservice** for the FastFood App!  
 Built with **NestJS**, **TypeScript**, **TypeORM**, and **PostgreSQL** — this service powers customer data in a clean and modular way.
 
+**Sonar Analyses**
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tech-snack-fiap-soat-tech-challenge_fastfood-customer-service&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=tech-snack-fiap-soat-tech-challenge_fastfood-customer-service)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=tech-snack-fiap-soat-tech-challenge_fastfood-customer-service&metric=coverage)](https://sonarcloud.io/summary/new_code?id=tech-snack-fiap-soat-tech-challenge_fastfood-customer-service)
 ---
+
+
 
 ## 🚀 Getting Started with Local Development
 
