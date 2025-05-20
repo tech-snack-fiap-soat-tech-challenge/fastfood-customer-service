@@ -1,7 +1,7 @@
 
 replicaCount: 2
 image:
-  repository: 966597785226.dkr.ecr.us-east-1.amazonaws.com/customer-service
+  repository: 966597785226.dkr.ecr.us-east-1.amazonaws.com/fastfood-customer-service
   pullPolicy: IfNotPresent
   tag: "latest"
 
