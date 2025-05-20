@@ -9,7 +9,8 @@ const config = {
   collectCoverage: true,
   coverageDirectory: '<rootDir>/coverage',
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '!<rootDir>/**/__tests__/**/*'],
-  coverageThreshold: { global: { branches: 70, functions: 70, lines: 70, statements: -10 } },
+  coverageThreshold: { global: { branches: 80, functions: 80, lines: 80, statements: 80 } },
+  coveragePathIgnorePatterns: ['<rootDir>/src/main.ts', '<rootDir>/src/setup', '\\.module\\.ts'],
 
   moduleFileExtensions: ['js', 'ts', 'json'],
   moduleNameMapper: {
