@@ -68,7 +68,7 @@ export const customerValueObjectsFixtures = {
       allSameDigits: '11111111111',
       wrongCheckDigits: '52998224722',
       specialCharacters: 'abcd5299822',
-      withLetters: '5299822472X',
+      withLetters: '52998abc22472X',
     },
   },
   emailAddress: {
