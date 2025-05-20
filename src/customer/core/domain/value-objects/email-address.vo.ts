@@ -6,7 +6,8 @@ type EmailAddressVoProps = {
 };
 
 export class EmailAddressVO extends BaseValueObject<EmailAddressVoProps> {
-  private static readonly EMAIL_REGEX: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  private static readonly EMAIL_REGEX =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
   private constructor(props: EmailAddressVoProps) {
     super(props);

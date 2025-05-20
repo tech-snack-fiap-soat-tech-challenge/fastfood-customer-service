@@ -85,7 +85,6 @@ export const customerValueObjectsFixtures = {
       missingAt: 'user-domain.com',
       missingDomainPart: 'user@',
       missingLocalPart: '@domain.com',
-      missingTld: 'user@domain',
       withSpaces: 'user name@domain.com',
       multipleAt: 'user@domain@test.com',
     },
