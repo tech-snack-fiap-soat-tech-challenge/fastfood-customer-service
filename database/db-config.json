@@ -7,7 +7,7 @@
     "database": { "ENV": "DB_NAME" },
     "user": { "ENV": "DB_USERNAME" },
     "password": { "ENV": "DB_PASSWORD" },
-    "ssl": { "ENV": "DB_SSL_CERT" }
+    "ssl": false
   },
   "db": {
     "driver": "pg",
