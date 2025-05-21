@@ -18,7 +18,7 @@ export class SwaggerConfigService {
         .build(),
     );
 
-    SwaggerModule.setup('/api/docs', application, document, {
+    SwaggerModule.setup('/docs', application, document, {
       swaggerOptions: {
         filter: true,
         docExpansion: 'none',
