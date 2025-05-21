@@ -8,9 +8,19 @@ Built with **NestJS**, **TypeScript**, **TypeORM**, and **PostgreSQL** — this 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tech-snack-fiap-soat-tech-challenge_fastfood-customer-service&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=tech-snack-fiap-soat-tech-challenge_fastfood-customer-service)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=tech-snack-fiap-soat-tech-challenge_fastfood-customer-service&metric=coverage)](https://sonarcloud.io/summary/new_code?id=tech-snack-fiap-soat-tech-challenge_fastfood-customer-service)
 ---
+## 📋 Service Overview
 
+The Customer Service is responsible for:
 
+- Managing customer profiles and account information
+- Creating and updating customer records
+- Validating customer identity and information
+- Communicating customer events to other microservices
 
+This microservice follows Clean Architecture principles, with clear separation between domain logic and 
+infrastructure concerns, ensuring maintainable and testable code.
+
+---
 ## 🚀 Getting Started with Local Development
 
 ### Prerequisites
@@ -73,7 +83,7 @@ docker compose up --build
 
 API documentation is auto-generated using **Swagger** and available once the app is running.
 
-👉 Visit: [http://localhost:3000/api/docs](http://localhost:3000/api/docs)
+👉 Visit: [http://localhost:3000/docs](http://localhost:3000/docs)
 
 ---
 
