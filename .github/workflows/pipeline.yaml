@@ -94,9 +94,9 @@ jobs:
 
       - name: Fazer deploy com Helm
         run: |
-          helm upgrade --install customer-service ./deployment \
+          helm upgrade --install fastfood-customer-service ./deployment \
             --namespace default \
-            --set image.repository=${{ secrets.AWS_ECR_REPOSITORY }}\
+            --set image.repository=${{ secrets.AWS_ECR_REPOSITORY }}/fastfood-customer-service \
             --set image.tag=latest
 
       - name: Verificar status dos pods

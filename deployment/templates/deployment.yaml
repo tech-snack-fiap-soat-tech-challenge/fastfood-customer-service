@@ -62,6 +62,11 @@ spec:
                 configMapKeyRef:
                   name: customer-db-config
                   key: DB_HOST
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: customer-db-config
+                  key: DB_PORT
             - name: DB_USERNAME
               valueFrom:
                 configMapKeyRef:
