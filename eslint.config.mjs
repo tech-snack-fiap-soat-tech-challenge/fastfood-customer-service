@@ -8,7 +8,7 @@ export default tseslint.config(
   tseslint.configs.recommended,
   importPlugin.flatConfigs.typescript,
   {
-    ignores: ['**/dist/*', '**/database/*', '**/coverage/*', '*.config.mjs'],
+    ignores: ['**/dist/*', '**/database/*', '**/deployment/*', '**/coverage/*', '*.config.mjs'],
   },
   {
     files: ['**/*.ts', '**/*.js'],

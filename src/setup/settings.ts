@@ -61,8 +61,8 @@ export default (): { app: AppConfig; log: LogsConfig; db: DBConfig } => {
       host: process.env.DB_HOST ?? 'localhost',
       port: Number(process.env.DB_PORT ?? 5432),
       name: process.env.DB_NAME ?? 'customer_db',
-      user: process.env.DB_USER ?? 'postgres',
-      pswd: process.env.DB_PSWD ?? 'postgres',
+      user: process.env.DB_USERNAME ?? 'postgres',
+      pswd: process.env.DB_PASSWORD ?? 'postgres',
       sslCert: process.env.DB_SSL_CERT
         ? {
             rejectUnauthorized: true,

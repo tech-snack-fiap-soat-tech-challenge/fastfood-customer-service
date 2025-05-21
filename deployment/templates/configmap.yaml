@@ -5,7 +5,8 @@ metadata:
   labels:
     name: customer-db-config
 data:
-  DB_HOST: customers-fiap-fastfood-db.c1rxlkrzya27.us-east-1.rds.amazonaws.com
-  DB_USERNAME: postgres
-  DB_PASSWORD: loucura123
-  DB_NAME: postgres
+  DB_HOST: "customers-fiap-fastfood-db.c1rxlkrzya27.us-east-1.rds.amazonaws.com"
+  DB_PORT: "5432"
+  DB_USERNAME: "postgres"
+  DB_PASSWORD: "loucura123"
+  DB_NAME: "postgres"
