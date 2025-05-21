@@ -94,9 +94,9 @@ jobs:
 
       - name: Fazer deploy com Helm
         run: |
-          helm upgrade --install fiap-fastfood ./deployment/fiap-fast-food \
+          helm upgrade --install customer-service ./deployment \
             --namespace default \
-            --set image.repository=${{ secrets.AWS_ECR_REPOSITORY }}/fastfood-customer-service \
+            --set image.repository=${{ secrets.AWS_ECR_REPOSITORY }}\
             --set image.tag=latest
 
       - name: Verificar status dos pods
