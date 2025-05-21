@@ -63,12 +63,7 @@ export default (): { app: AppConfig; log: LogsConfig; db: DBConfig } => {
       name: process.env.DB_NAME ?? 'customer_db',
       user: process.env.DB_USERNAME ?? 'postgres',
       pswd: process.env.DB_PASSWORD ?? 'postgres',
-      sslCert: process.env.DB_SSL_CERT
-        ? {
-            rejectUnauthorized: true,
-            ca: process.env.DB_SSL_CERT,
-          }
-        : false,
+      sslCert: false,
     },
   };
 };
